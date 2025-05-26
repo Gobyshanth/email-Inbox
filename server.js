@@ -21,7 +21,7 @@ app.use(session({
   },
 }));
 
-const gmailRoutes = require('./routes/gmail');
+const gmailRoutes = require('./api/index');
 app.use('/', gmailRoutes);
 
 const PORT = process.env.PORT || 5000;
