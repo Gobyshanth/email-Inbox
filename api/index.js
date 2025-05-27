@@ -135,4 +135,6 @@ router.get('/message/:id', ensureAuthenticated, async (req, res) => {
   }
 });
 
+router.get('/favicon.ico', (req, res) => res.status(204).end());
+
 module.exports = router;
