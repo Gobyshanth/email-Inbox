@@ -6,7 +6,6 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5000',
   credentials: true,
 }));
 
@@ -14,8 +13,8 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'default_secret_key',
   resave: false,
   saveUninitialized: true,
-  cookie: {
-    secure: false,  
+ cookie: {
+    secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
     maxAge: 24 * 60 * 60 * 1000, // 1 day
   },
